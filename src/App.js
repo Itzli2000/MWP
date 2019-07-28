@@ -1,35 +1,14 @@
 import React, { Component } from 'react';
-import { PropTypes } from 'prop-types';
-import { connect } from 'react-redux';
-import { testAction } from './actions';
-import './App.css';
+import LoginContainer from './views/login/LoginContainer';
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {}
-  }
-
-  componentDidMount() {
-    this.props.testAction('ya jalo');
-  }
-
   render() {
     return (
-      <div className="App">
+      <div className="App container-fluid">
+        <LoginContainer/>
       </div>
     );
   }
 }
 
-App.propTypes = {
-  testAction: PropTypes.func.isRequired,
-}
-
-const mapDispatchToProps = dispatch => ({
-  testAction: value => dispatch(testAction(value)),
-});
-
-const mapStateToProps = () => { }
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

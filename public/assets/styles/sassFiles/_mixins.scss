@@ -1,0 +1,25 @@
+@mixin flexElement {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: center;
+    -ms-align-items: center;
+    align-items: center;
+}
+
+@mixin customButton {
+    width: 100%;
+    min-width: 150px;
+    max-width: 300px;
+    border: 1px solid #fff;
+    color: #fff;
+    border-radius: 20px;
+    background-color: transparent;
+    padding: 5px 20px;
+    &:hover {
+        background-color: #fff;
+        color: #000;
+    }
+}

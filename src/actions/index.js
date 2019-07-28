@@ -1,2 +1,3 @@
-export const TEST_ACTION = 'TEST_ACTION';
-export const testAction = value => ({ type: 'testAction', value });
+import { LOGIN } from './../constants';
+
+export const login = payload => ({ type: LOGIN, payload });
