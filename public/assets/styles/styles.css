@@ -27,6 +27,7 @@ a, button {
     position: relative;
     z-index: 0; }
     .flexElementColumn.login.Expert {
+      background-image: url("~/../../images/login1.jpg");
       z-index: 1; }
     .flexElementColumn.login.SearchExpert {
       background-image: url("~/../../images/login2.jpg");
