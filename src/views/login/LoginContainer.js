@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
-import { login } from '../../actions';
+import { login, login_type } from '../../actions';
+// Externasl imports
+import Swal from 'sweetalert2';
 // components imports
 import SliderComponent from './components/SliderComponent';
 
@@ -12,16 +14,47 @@ class LoginContainer extends Component {
         this.state = {
             background: 'Expert',
         }
-    }    
-
-    loginExpert = value => {
+    }
+    
+    loginUserType = value => {
         this.props.loginAction(value);
-        this.setState({background: value});
+        this.setState({ background: value });
     }
 
-    loginSearchExpert = value => {
-        this.props.loginAction(value);
-        this.setState({background: value});
+    showLoginModal = value => {
+        const instance = this;
+        var expertContent =
+            `<div>
+            <img src="https://dummyimage.com/300X150/000/fff" alt="logo">
+            <h2>Be an expert for someone ${value}</h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et aut officia est eius delectus unde eos aperiam expedita enim animi temporibus neque, debitis reiciendis in dolorem sapiente porro sunt laboriosam?</p>
+            <button id="LinkedButton">LinkedIn</button>
+            <button style="display:none" id="Facebook">Facebook</button>
+            </div>`;
+        var userSearchContent =
+            `<div>
+            <img src="https://dummyimage.com/300X150/000/fff" alt="logo">
+            <h2>Be an expert for someone ${value}</h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et aut officia est eius delectus unde eos aperiam expedita enim animi temporibus neque, debitis reiciendis in dolorem sapiente porro sunt laboriosam?</p>
+            <button id="LinkedButton">LinkedIn</button>
+            <button id="Facebook">Facebook</button>
+            </div>`;
+        Swal.fire({
+            html: (value === 'Expert' ? expertContent : userSearchContent),
+            text: 'Do you want to continue', onBeforeOpen: () => {
+                const content = Swal.getContent();
+                const $ = content.querySelector.bind(content);
+                const FacebookButton = $('#Facebook');
+                const LinkedButton = $('#LinkedButton');
+                LinkedButton.addEventListener('click', (e) => {
+                    instance.props.loginType('LinkedInLogged');
+                })
+                FacebookButton.addEventListener('click', (e) => {
+                    instance.props.loginType('FacebookLogged');
+                })
+            },
+            showConfirmButton: false
+        });
     }
 
     render() {
@@ -29,8 +62,8 @@ class LoginContainer extends Component {
             <div className="row fullHeight">
                 <SliderComponent
                     currentState={this.state}
-                    loginExpert={this.loginExpert}
-                    loginSearchExpert={this.loginSearchExpert}
+                    loginUserType={this.loginUserType}
+                    showLoginModal={this.showLoginModal}
                 />
             </div>
         );
@@ -39,16 +72,17 @@ class LoginContainer extends Component {
 
 LoginContainer.propTypes = {
     loginAction: PropTypes.func.isRequired,
+    loginType: PropTypes.func.isRequired,
 }
 
 const mapDispatchToProps = dispatch => ({
     loginAction: value => dispatch(login(value)),
+    loginType: value => dispatch(login_type(value)),
 });
 
-function mapStateToProps(state) {
-    return {
-
-    };
-}
+const mapStateToProps = state => ({
+    login: state.login,
+    login_type: state.login_type
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginContainer);

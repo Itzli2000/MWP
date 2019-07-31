@@ -23,13 +23,13 @@ class sliderComponent extends Component {
                         }
                     </p>
                     <ul className="selectorsContainer">
-                        <li onClick={() => props.loginExpert('Expert')} className={"selector " + (currentState.background === 'Expert' ? 'active' : '')}></li>
-                        <li onClick={() => props.loginExpert('SearchExpert')} className={"selector " + (currentState.background === 'SearchExpert' ? 'active' : '')}></li>
+                        <li onClick={() => props.loginUserType('Expert')} className={"selector " + (currentState.background === 'Expert' ? 'active' : '')}></li>
+                        <li onClick={() => props.loginUserType('SearchExpert')} className={"selector " + (currentState.background === 'SearchExpert' ? 'active' : '')}></li>
                     </ul>
                 </div>
                 <div className="buttonsContainer w-100">
-                    <button onClick={() => props.loginExpert('Expert')} className={currentState.background === 'Expert' ? 'active' : ''}>I Can Be An Expert</button>
-                    <button onClick={() => props.loginSearchExpert('SearchExpert')} className={currentState.background === 'SearchExpert' ? 'active' : ''}>I`m looking For An Expert</button>
+                    <button onClick={() => { props.loginUserType('Expert');props.showLoginModal('Expert')}} className={currentState.background === 'Expert' ? 'active' : ''}>I Can Be An Expert</button>
+                    <button onClick={() => { props.loginUserType('SearchExpert');props.showLoginModal('SearchExpert')}} className={currentState.background === 'SearchExpert' ? 'active' : ''}>I`m looking For An Expert</button>
                 </div>
             </div>
         );
