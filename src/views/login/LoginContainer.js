@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
-import { login, login_type } from '../../actions';
+import { fetch_action, login_type } from '../../actions';
 // Externasl imports
 import Swal from 'sweetalert2';
 // components imports
@@ -76,7 +76,7 @@ LoginContainer.propTypes = {
 }
 
 const mapDispatchToProps = dispatch => ({
-    loginAction: value => dispatch(login(value)),
+    loginAction: value => dispatch(fetch_action(value)),
     loginType: value => dispatch(login_type(value)),
 });
 
