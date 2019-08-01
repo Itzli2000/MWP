@@ -6,6 +6,7 @@ import { fetch_action, login_type } from '../../actions';
 import Swal from 'sweetalert2';
 // components imports
 import SliderComponent from './components/SliderComponent';
+import DescriptionComponent from './components/DescriptionComponent';
 
 class LoginContainer extends Component {
 
@@ -66,6 +67,7 @@ class LoginContainer extends Component {
                     loginUserType={this.loginUserType}
                     showLoginModal={this.showLoginModal}
                 />
+                <DescriptionComponent />
             </div>
         );
     }
