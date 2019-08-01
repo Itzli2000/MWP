@@ -1,15 +1,6 @@
-export const reducer = (state = {}, action) => {
-    switch (action.type) {
-        case 'LOGIN':
-            return { ...state, login: action.payload }
+import { combineReducers } from 'redux';
+import { login } from './login';
 
-        case 'LOGIN_TYPE':
-            return { ...state, login_type: action.payload }
-
-        case 'FETCH_RESULT':
-            return { ...state, fetch: action.payload }
-
-        default:
-            return { state }
-    }
-}
+export default combineReducers({
+    login,
+});

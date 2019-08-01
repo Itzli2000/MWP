@@ -61,6 +61,7 @@ class LoginContainer extends Component {
         return (
             <div className="row fullHeight">
                 <SliderComponent
+                    newData={this.props}
                     currentState={this.state}
                     loginUserType={this.loginUserType}
                     showLoginModal={this.showLoginModal}
@@ -80,9 +81,10 @@ const mapDispatchToProps = dispatch => ({
     loginType: value => dispatch(login_type(value)),
 });
 
-const mapStateToProps = state => ({
-    login: state.login,
-    login_type: state.login_type
+const mapStateToProps = ({ login }) => ({
+    login: login.login,
+    login_type: login.login_type,
+    fetch_data: login.fetch,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginContainer);

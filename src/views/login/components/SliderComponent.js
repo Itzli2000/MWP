@@ -3,7 +3,10 @@ import React, { Component } from 'react';
 class sliderComponent extends Component {
     render() {
         const { props } = this;
-        const { currentState } = props;
+        const { currentState, newData } = props;
+        const { fetch_data } = newData;
+        console.log(newData);
+        
         return (
             <div className={"col-sm-12 col-md-6 flexElementColumn login " + currentState.background}>
                 <div className="header">
@@ -31,6 +34,7 @@ class sliderComponent extends Component {
                     <button onClick={() => { props.loginUserType('Expert');props.showLoginModal('Expert')}} className={currentState.background === 'Expert' ? 'active' : ''}>I Can Be An Expert</button>
                     <button onClick={() => { props.loginUserType('SearchExpert');props.showLoginModal('SearchExpert')}} className={currentState.background === 'SearchExpert' ? 'active' : ''}>I`m looking For An Expert</button>
                 </div>
+                {fetch_data ? <div>{fetch_data.name}</div> : <div>Sin datos</div>}
             </div>
         );
     }
