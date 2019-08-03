@@ -4,7 +4,6 @@ import { reactI18nextModule } from "react-i18next";
 import translationEN from './transaltions/en.json';
 import translationES from './transaltions/es.json';
 
-// the translations
 const resources = {
   en: {
     translation: translationEN
@@ -15,15 +14,15 @@ const resources = {
 };
 
 i18n
-  .use(reactI18nextModule) // passes i18n down to react-i18next
+  .use(reactI18nextModule)
   .init({
     resources,
     lng: "es",
 
-    keySeparator: false, // we do not use keys in form messages.welcome
+    keySeparator: false,
 
     interpolation: {
-      escapeValue: false // react already safes from xss
+      escapeValue: false
     }
   });
 

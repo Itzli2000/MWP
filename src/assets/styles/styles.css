@@ -10,11 +10,28 @@ button {
   button:visited {
     outline: none !important; }
 
+.swal2-cancel.swal2-styled {
+  position: absolute;
+  top: 0px;
+  right: 5px;
+  padding: 0;
+  font-size: 25px;
+  background-color: transparent;
+  color: #000000;
+  transition: color 0.25s ease-in-out; }
+  .swal2-cancel.swal2-styled:hover {
+    background-color: transparent;
+    background-image: none !important;
+    color: #0000ff; }
+
 .App {
   min-height: 100vh;
   max-width: 1500px; }
 
 .fullHeight {
+  min-height: 100vh; }
+
+.AppFrame .dashboardContent {
   min-height: 100vh; }
 
 .flexElementColumn {

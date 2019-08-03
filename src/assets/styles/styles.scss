@@ -1,2 +1,9 @@
 @import './sassFiles/variables';
+@import "./sassFiles/mixins";
+
+// Styles imports
 @import './sassFiles/general';
+
+//  Media queries files
+@import './sassFiles/media768';
+@import './sassFiles/media425';

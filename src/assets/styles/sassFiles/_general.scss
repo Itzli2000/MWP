@@ -1,6 +1,5 @@
-@import "./mixins";
 :root {
-    font-size: $root_size;
+  font-size: $root_size;
 }
 a,
 button {
@@ -11,12 +10,33 @@ button {
     outline: none !important;
   }
 }
+// Sweet alert styles
+.swal2-cancel.swal2-styled {
+  position: absolute;
+  top: 0px;
+  right: 5px;
+  padding: 0;
+  font-size: 25px;
+  background-color: transparent;
+  color: $black;
+  transition: color 0.25s ease-in-out;
+  &:hover {
+    background-color: transparent;
+    background-image: none !important;
+    color: $blue;
+  }
+}
 .App {
   min-height: 100vh;
   max-width: 1500px;
 }
 .fullHeight {
   min-height: 100vh;
+}
+.AppFrame {
+  .dashboardContent {
+    min-height: 100vh;
+  }
 }
 .flexElementColumn {
   @include flexElement;
@@ -45,7 +65,7 @@ button {
     left: 0;
     top: 0;
     z-index: 2;
-    background-color: rgba(blue, 0.15);
+    background-color: rgba($blue, 0.15);
   }
   .header {
     z-index: 3;
@@ -90,14 +110,14 @@ button {
   }
 }
 .descriptionLogin {
-    padding-right: 5rem;
+  padding-right: 5rem;
   h2 {
     margin-top: 20px;
     margin-bottom: 20px;
   }
   p {
-      width: 80%;
-      min-width: 250px;
-      max-width: 400px;
+    width: 80%;
+    min-width: 250px;
+    max-width: 400px;
   }
 }

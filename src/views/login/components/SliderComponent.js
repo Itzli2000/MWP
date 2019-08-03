@@ -12,13 +12,11 @@ const sliderComponent = (props) => {
                         <h1> {t('LoginExpert')}</h1> :
                         <h1> {t('LoginSearchExpert')}</h1>
                 }
-                <p>
-                    {
-                        currentState.background === 'Expert' ?
-                            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur odit molestiae quae. Illum, unde maiores.' :
-                            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, at?'
-                    }
-                </p>
+                {
+                    currentState.background === 'Expert' ?
+                        <p>{t('ExpertDescription')}</p> :
+                        <p>{t('SearchExpertDescription')}</p>
+                }
                 <ul className="selectorsContainer">
                     <li onClick={() => props.loginUserType('Expert')} className={"selector " + (currentState.background === 'Expert' ? 'active' : '')}></li>
                     <li onClick={() => props.loginUserType('SearchExpert')} className={"selector " + (currentState.background === 'SearchExpert' ? 'active' : '')}></li>

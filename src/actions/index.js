@@ -14,7 +14,7 @@ export const fetch_action = payload => {
 			data => data.json()
 		).then(
 			response => {
-				console.log(response);
+				// console.log(response);
 				dispatch(fetch_result(response));
 			}
 		)

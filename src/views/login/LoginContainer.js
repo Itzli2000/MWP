@@ -27,7 +27,7 @@ class LoginContainer extends Component {
         const { t } = instance.props;
         var expertContent =
             `<div>
-            <img src="https://dummyimage.com/300X150/000/fff" alt="logo">
+            <img class="img-fluid" src="https://dummyimage.com/300X150/000/fff" alt="logo">
             <h2>${t('ModalExpertTitle')}</h2>
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et aut officia est eius delectus unde eos aperiam expedita enim animi temporibus neque, debitis reiciendis in dolorem sapiente porro sunt laboriosam?</p>
             <button id="LinkedButton">LinkedIn</button>
@@ -35,7 +35,7 @@ class LoginContainer extends Component {
             </div>`;
         var userSearchContent =
             `<div>
-            <img src="https://dummyimage.com/300X150/000/fff" alt="logo">
+            <img class="img-fluid" src="https://dummyimage.com/300X150/000/fff" alt="logo">
             <h2>${t('ModalSearchTitle')}</h2>
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et aut officia est eius delectus unde eos aperiam expedita enim animi temporibus neque, debitis reiciendis in dolorem sapiente porro sunt laboriosam?</p>
             <button id="LinkedButton">LinkedIn</button>
@@ -56,7 +56,9 @@ class LoginContainer extends Component {
                 })
             },
             showConfirmButton: false,
-            width: '90%'
+            showCancelButton: true,
+            cancelButtonText: '<i class="fa fa-times-circle-o "></i>',
+            width: '50%'
         });
     }
 
@@ -65,14 +67,14 @@ class LoginContainer extends Component {
         return (
             <div className="row fullHeight">
                 <SliderComponent
-                { ...this.props }
+                    {...this.props}
                     newData={this.props}
                     currentState={this.state}
                     loginUserType={this.loginUserType}
                     showLoginModal={this.showLoginModal}
                 />
                 <DescriptionComponent
-                    { ...this.props }
+                    {...this.props}
                     changeLanguage={this.props.changeLanguage}
                 />
             </div>
@@ -83,6 +85,7 @@ class LoginContainer extends Component {
 LoginContainer.propTypes = {
     loginAction: PropTypes.func.isRequired,
     loginType: PropTypes.func.isRequired,
+    changeLanguage: PropTypes.func.isRequired,
 }
 
 const mapDispatchToProps = dispatch => ({

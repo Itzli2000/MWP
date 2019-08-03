@@ -1,10 +1,16 @@
 {
-    "ChangeLng": "Cambiar idioma",
+    "ChangeLngEs": "Español",
+    "ChangeLngEn": "Ingles",
     "Welcome": "Bienvenido",
     "LoginExpert": "Se un Experto",
+    "WelcomDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, incidunt ipsam amet eveniet aliquid illum ipsa molestiae eligendi suscipit aut!",
     "LoginSearchExpert": "Encuentra un Experto",
+    "ExpertDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur odit molestiae quae. Illum, unde maiores.",
+    "SearchExpertDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur odit molestiae quae. Illum, unde maiores.",
     "ExpertButton": "Puedo ser un Experto",
     "FindExpertButton": "Estoy Buscando un Experto",
     "ModalExpertTitle": "Se un Experto para alguien",
-    "ModalSearchTitle": "Entonces, ¿necesitas un experto, verdad?"
+    "ModalSearchTitle": "Entonces, ¿necesitas un experto, verdad?",
+    "Terms": "Términos y Condiciones",
+    "Privacy": "Políticas de Privacidad"
 }
