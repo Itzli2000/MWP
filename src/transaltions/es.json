@@ -1,3 +1,7 @@
 {
-    "Welcome to React": "Bienvenido a React y react-i18next"
+    "Welcome": "Bienvenido",
+    "LoginExpert": "Se un Experto",
+    "LoginSearchExpert": "Encuentra un Experto",
+    "ExpertButton": "Puedo ser un Experto",
+    "FindExpertButton": "Estoy Buscando un Experto"
 }

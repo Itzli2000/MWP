@@ -16,7 +16,7 @@ class LoginContainer extends Component {
             background: 'Expert',
         }
     }
-    
+
     loginUserType = value => {
         this.props.loginAction(value);
         this.setState({ background: value });
@@ -59,15 +59,21 @@ class LoginContainer extends Component {
     }
 
     render() {
+        console.log(this.props);
+
         return (
             <div className="row fullHeight">
                 <SliderComponent
+                { ...this.props }
                     newData={this.props}
                     currentState={this.state}
                     loginUserType={this.loginUserType}
                     showLoginModal={this.showLoginModal}
                 />
-                <DescriptionComponent />
+                <DescriptionComponent
+                    { ...this.props }
+                    changeLanguage={this.props.changeLanguage}
+                />
             </div>
         );
     }
