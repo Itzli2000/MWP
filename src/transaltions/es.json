@@ -1,7 +1,10 @@
 {
+    "ChangeLng": "Cambiar idioma",
     "Welcome": "Bienvenido",
     "LoginExpert": "Se un Experto",
     "LoginSearchExpert": "Encuentra un Experto",
     "ExpertButton": "Puedo ser un Experto",
-    "FindExpertButton": "Estoy Buscando un Experto"
+    "FindExpertButton": "Estoy Buscando un Experto",
+    "ModalExpertTitle": "Se un Experto para alguien",
+    "ModalSearchTitle": "Entonces, ¿necesitas un experto, verdad?"
 }

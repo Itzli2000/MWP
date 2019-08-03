@@ -24,10 +24,11 @@ class LoginContainer extends Component {
 
     showLoginModal = value => {
         const instance = this;
+        const { t } = instance.props;
         var expertContent =
             `<div>
             <img src="https://dummyimage.com/300X150/000/fff" alt="logo">
-            <h2>Be an expert for someone ${value}</h2>
+            <h2>${t('ModalExpertTitle')}</h2>
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et aut officia est eius delectus unde eos aperiam expedita enim animi temporibus neque, debitis reiciendis in dolorem sapiente porro sunt laboriosam?</p>
             <button id="LinkedButton">LinkedIn</button>
             <button style="display:none" id="Facebook">Facebook</button>
@@ -35,7 +36,7 @@ class LoginContainer extends Component {
         var userSearchContent =
             `<div>
             <img src="https://dummyimage.com/300X150/000/fff" alt="logo">
-            <h2>Be an expert for someone ${value}</h2>
+            <h2>${t('ModalSearchTitle')}</h2>
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et aut officia est eius delectus unde eos aperiam expedita enim animi temporibus neque, debitis reiciendis in dolorem sapiente porro sunt laboriosam?</p>
             <button id="LinkedButton">LinkedIn</button>
             <button id="Facebook">Facebook</button>
@@ -54,12 +55,12 @@ class LoginContainer extends Component {
                     instance.props.loginType('FacebookLogged');
                 })
             },
-            showConfirmButton: false
+            showConfirmButton: false,
+            width: '90%'
         });
     }
 
     render() {
-        console.log(this.props);
 
         return (
             <div className="row fullHeight">

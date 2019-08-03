@@ -3,7 +3,6 @@ import React from 'react';
 const sliderComponent = (props) => {
     const { currentState, newData, t } = props;
     const { fetch_data } = newData;
-    console.log(newData);
 
     return (
         <div className={"col-sm-12 col-md-6 flexElementColumn login " + currentState.background}>

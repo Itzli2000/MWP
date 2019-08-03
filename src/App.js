@@ -13,7 +13,6 @@ class App extends Component {
   }
 
   changeLanguage = (lng) => {
-    console.log(lng);
     i18n.changeLanguage(lng);
   }
 
