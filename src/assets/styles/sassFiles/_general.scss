@@ -30,11 +30,11 @@ button {
   position: relative;
   z-index: 0;
   &.Expert {
-    background-image: url("~/../../images/login1.jpg");
+    background-image: url("/assets/images/login1.jpg");
     z-index: 1;
   }
   &.SearchExpert {
-    background-image: url("~/../../images/login2.jpg");
+    background-image: url("/assets/images/login2.jpg");
     z-index: 1;
   }
   &::before {
