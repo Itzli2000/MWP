@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetch_action, login_type } from '../../actions';
 // Externasl imports
@@ -20,6 +21,30 @@ class LoginContainer extends Component {
     loginUserType = value => {
         this.props.loginAction(value);
         this.setState({ background: value });
+    }
+
+    showTerms = () => {
+        const instance = this;
+        const { t } = instance.props;
+        Swal.fire({
+            title: `${t('Terms')}`,
+            text: `${t('TermsText')}`,
+            showCancelButton: true,
+            cancelButtonText: '<i class="fa fa-times-circle-o "></i>',
+            width: '50%'
+        })
+    }
+
+    showPrivacy = () => {
+        const instance = this;
+        const { t } = instance.props;
+        Swal.fire({
+            title: `${t('Privacy')}`,
+            text: `${t('PrivacyText')}`,
+            showCancelButton: true,
+            cancelButtonText: '<i class="fa fa-times-circle-o "></i>',
+            width: '50%'
+        })
     }
 
     showLoginModal = value => {
@@ -50,6 +75,8 @@ class LoginContainer extends Component {
                 const LinkedButton = $('#LinkedButton');
                 LinkedButton.addEventListener('click', (e) => {
                     instance.props.loginType('LinkedInLogged');
+                    instance.props.history.push('/user/dasboard');
+                    Swal.close();
                 })
                 FacebookButton.addEventListener('click', (e) => {
                     instance.props.loginType('FacebookLogged');
@@ -63,20 +90,23 @@ class LoginContainer extends Component {
     }
 
     render() {
-
         return (
-            <div className="row fullHeight">
-                <SliderComponent
-                    {...this.props}
-                    newData={this.props}
-                    currentState={this.state}
-                    loginUserType={this.loginUserType}
-                    showLoginModal={this.showLoginModal}
-                />
-                <DescriptionComponent
-                    {...this.props}
-                    changeLanguage={this.props.changeLanguage}
-                />
+            <div className="fullHeight container">
+                <div className="row">
+                    <SliderComponent
+                        {...this.props}
+                        newData={this.props}
+                        currentState={this.state}
+                        loginUserType={this.loginUserType}
+                        showLoginModal={this.showLoginModal}
+                        showTerms={this.showTerms}
+                    />
+                    <DescriptionComponent
+                        {...this.props}
+                        changeLanguage={this.props.changeLanguage}
+                        showPrivacy={this.showPrivacy}
+                    />
+                </div>
             </div>
         );
     }
@@ -99,4 +129,4 @@ const mapStateToProps = ({ login }) => ({
     fetch_data: login.fetch,
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(LoginContainer));

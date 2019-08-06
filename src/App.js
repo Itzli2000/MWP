@@ -23,7 +23,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="App container-fluid">
+        <div className="App">
           <Switch>
             <Route path="/user/" render={() =>
               <AppFrame

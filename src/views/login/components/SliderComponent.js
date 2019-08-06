@@ -26,7 +26,8 @@ const sliderComponent = (props) => {
                 <button onClick={() => { props.loginUserType('Expert'); props.showLoginModal('Expert') }} className={currentState.background === 'Expert' ? 'active' : ''}>{t('ExpertButton')}</button>
                 <button onClick={() => { props.loginUserType('SearchExpert'); props.showLoginModal('SearchExpert') }} className={currentState.background === 'SearchExpert' ? 'active' : ''}>{t('FindExpertButton')}</button>
             </div>
-            {fetch_data ? <div>{fetch_data.name}</div> : <div>Sin datos</div>}
+            {fetch_data ? <p>{fetch_data.name}</p> : <p>Sin datos</p>}
+            <p className="termsAnchor" onClick={() => props.showTerms()}>{t('Terms')}</p>
         </div>
     )
 }

@@ -28,7 +28,6 @@ button {
 }
 .App {
   min-height: 100vh;
-  max-width: 1500px;
 }
 .fullHeight {
   min-height: 100vh;
@@ -36,6 +35,15 @@ button {
 .AppFrame {
   .dashboardContent {
     min-height: 100vh;
+  }
+}
+.languageSelector {
+  span {
+    cursor: pointer;
+    transition: color 0.15s ease-out;
+    &:hover {
+      color: $blue;
+    }
   }
 }
 .flexElementColumn {
@@ -64,17 +72,16 @@ button {
     position: absolute;
     left: 0;
     top: 0;
-    z-index: 2;
     background-color: rgba($blue, 0.15);
   }
   .header {
     z-index: 3;
     text-align: center;
     h1 {
-      color: #fff;
+      color: $white;
     }
     p {
-      color: #fff;
+      color: $white;
       width: 70%;
       min-width: 250px;
       max-width: 300px;
@@ -87,11 +94,11 @@ button {
         display: inline-block;
         width: 8px;
         height: 8px;
-        background-color: rgba(#fff, 0.5);
+        background-color: rgba($white, 0.5);
         margin: 5px;
         border-radius: 100%;
         &.active {
-          background-color: rgba(#fff, 0.8);
+          background-color: rgba($white, 0.8);
         }
       }
     }
@@ -102,15 +109,22 @@ button {
       display: block;
       margin: 10px auto;
       @include customButton;
+      // @include linearGradientBackground(blue, orange, 0.5, 0.6, 5%, 90%);
       &.active {
-        background-color: #fff;
-        color: black;
+        background-color: $white;
+        color: $black;
       }
+    }
+  }
+  .termsAnchor {
+    color: $white;
+    &:hover {
+      color: rgba($white, 0.5);
     }
   }
 }
 .descriptionLogin {
-  padding-right: 5rem;
+  // padding-right: 5rem;
   h2 {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -119,5 +133,19 @@ button {
     width: 80%;
     min-width: 250px;
     max-width: 400px;
+    text-align: right;
   }
+  .PrivacyAnchor {
+    &:hover {
+      color: rgba($black, 0.5);
+    }
+  }
+}
+
+.PrivacyAnchor,
+.termsAnchor {
+  position: absolute;
+  bottom: 5%;
+  text-align: center;
+  cursor: pointer;
 }

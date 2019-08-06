@@ -1,25 +1,55 @@
 @mixin flexElement {
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex;
-    display: -o-flex;
-    display: flex;
-    justify-content: center;
-    -ms-align-items: center;
-    align-items: center;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  justify-content: center;
+  -ms-align-items: center;
+  align-items: center;
 }
 
 @mixin customButton {
-    width: 100%;
-    min-width: 150px;
-    max-width: 300px;
-    border: 1px solid #fff;
-    color: #fff;
-    border-radius: 20px;
-    background-color: transparent;
-    padding: 5px 20px;
-    &:hover {
-        background-color: #fff;
-        color: #000;
-    }
+  width: 100%;
+  min-width: 150px;
+  max-width: 300px;
+  border: 1px solid #fff;
+  color: #fff;
+  border-radius: 20px;
+  background-color: transparent;
+  padding: 5px 20px;
+  &:hover {
+    background-color: #fff;
+    color: #000;
+  }
+}
+
+@mixin linearGradientBackground(
+  $startColor: $white,
+  $endColor: $black,
+  $startOpacity: 1,
+  $endOpacity: 1,
+  $startAt: 0%,
+  $endAt: 100%
+) {
+  background: rgba($startColor, $startOpacity);
+  background: -moz-linear-gradient(
+    left,
+    rgba($startColor, $startOpacity) $startAt,
+    rgba($endColor, $endOpacity) $endAt
+  );
+  background: -webkit-gradient(
+    left top,
+    right top,
+    color-stop($startAt, rgba($startColor, $startOpacity)),
+    color-stop($endAt, rgba($endColor, $endOpacity))
+  );
+  background: -webkit-linear-gradient(
+    left,
+    rgba($startColor, $startOpacity) $startAt,
+    rgba($endColor, $endOpacity) $endAt
+  );
+  background: -o-linear-gradient(left, rgba($startColor, $startOpacity) $startAt, rgba($endColor, $endOpacity) $endAt);
+  background: -ms-linear-gradient(left, rgba($startColor, $startOpacity) $startAt, rgba($endColor, $endOpacity) $endAt);
+  background: linear-gradient(to right, rgba($startColor, $startOpacity) $startAt, rgba($endColor, $endOpacity) $endAt);
 }

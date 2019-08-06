@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, withRouter } from "react-router-dom";
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 // Components import
@@ -57,4 +57,4 @@ const mapDispatchToProps = dispatch => ({
 const mapStateToProps = ({ login }) => ({
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(AppFrame);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(AppFrame));

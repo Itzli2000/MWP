@@ -25,14 +25,19 @@ button {
     color: #0000ff; }
 
 .App {
-  min-height: 100vh;
-  max-width: 1500px; }
+  min-height: 100vh; }
 
 .fullHeight {
   min-height: 100vh; }
 
 .AppFrame .dashboardContent {
   min-height: 100vh; }
+
+.languageSelector span {
+  cursor: pointer;
+  transition: color 0.15s ease-out; }
+  .languageSelector span:hover {
+    color: #0000ff; }
 
 .flexElementColumn {
   display: -webkit-flex;
@@ -65,15 +70,14 @@ button {
     position: absolute;
     left: 0;
     top: 0;
-    z-index: 2;
     background-color: rgba(0, 0, 255, 0.15); }
   .login .header {
     z-index: 3;
     text-align: center; }
     .login .header h1 {
-      color: #fff; }
+      color: #FFFFFF; }
     .login .header p {
-      color: #fff;
+      color: #FFFFFF;
       width: 70%;
       min-width: 250px;
       max-width: 300px;
@@ -107,17 +111,29 @@ button {
         background-color: #fff;
         color: #000; }
       .login .buttonsContainer button.active {
-        background-color: #fff;
-        color: black; }
+        background-color: #FFFFFF;
+        color: #000000; }
+  .login .termsAnchor {
+    color: #FFFFFF; }
+    .login .termsAnchor:hover {
+      color: rgba(255, 255, 255, 0.5); }
 
-.descriptionLogin {
-  padding-right: 5rem; }
-  .descriptionLogin h2 {
-    margin-top: 20px;
-    margin-bottom: 20px; }
-  .descriptionLogin p {
-    width: 80%;
-    min-width: 250px;
-    max-width: 400px; }
+.descriptionLogin h2 {
+  margin-top: 20px;
+  margin-bottom: 20px; }
+.descriptionLogin p {
+  width: 80%;
+  min-width: 250px;
+  max-width: 400px;
+  text-align: right; }
+.descriptionLogin .PrivacyAnchor:hover {
+  color: rgba(0, 0, 0, 0.5); }
+
+.PrivacyAnchor,
+.termsAnchor {
+  position: absolute;
+  bottom: 5%;
+  text-align: center;
+  cursor: pointer; }
 
 /*# sourceMappingURL=styles.css.map */

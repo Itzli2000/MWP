@@ -9,9 +9,8 @@ const Header = (props) => {
     <div className="col-12 d-flex flex-row justify-content-between align-items-center">
       <img className="img-fluid py-3" src="https://dummyimage.com/100X30/000/fff" alt="Logo MWP"/>
       <div className="languageSelector">
-
-        <a href="#nothing" onClick={() => props.changeLanguage('es')}>{t('ChangeLngEs')}</a> |
-        <a href="#nothing" onClick={() => props.changeLanguage('en')}>{t('ChangeLngEn')}</a>
+        <span onClick={() => props.changeLanguage('es')}>{t('ChangeLngEs')}&nbsp;&nbsp;</span>|
+        <span onClick={() => props.changeLanguage('en')}>&nbsp;&nbsp;{t('ChangeLngEn')}</span>
       </div>
     </div>
   )
