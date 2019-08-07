@@ -17,7 +17,7 @@ class AppFrame extends Component {
 
   render() {
     return (
-      <div className="AppFrame row">
+      <div className="AppFrame container-fluid">
         <Header
           {...this.props}
           changeLanguage={this.props.changeLanguage}

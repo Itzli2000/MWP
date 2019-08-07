@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
 // components imports
 import SliderComponent from './components/SliderComponent';
 import DescriptionComponent from './components/DescriptionComponent';
+import Header from './../appFrame/components/Header.js';
 
 class LoginContainer extends Component {
 
@@ -92,6 +93,10 @@ class LoginContainer extends Component {
     render() {
         return (
             <div className="fullHeight container">
+                <Header
+                  {...this.props}
+                  changeLanguage={this.props.changeLanguage}
+                />
                 <div className="row">
                     <SliderComponent
                         {...this.props}
