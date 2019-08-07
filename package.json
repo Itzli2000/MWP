@@ -17,7 +17,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "test": "react-scripts test",
+    "test": "jest",
     "eject": "react-scripts eject",
     "build": "webpack --mode production"
   },
@@ -36,5 +36,10 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-jest": "^24.8.0",
+    "react-test-renderer": "^16.8.6"
+  }
 }

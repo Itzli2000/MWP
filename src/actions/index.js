@@ -1,6 +1,6 @@
 import { LOGIN, LOGIN_TYPE } from './../constants';
 
-const login = payload => ({ type: LOGIN, payload });
+export const login = payload => ({ type: LOGIN, payload });
 export const login_type = payload => ({ type: LOGIN_TYPE, payload });
 const fetch_result = payload => ({type: 'FETCH_RESULT', payload});
 
