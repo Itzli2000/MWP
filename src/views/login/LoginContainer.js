@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetch_action, login_type } from '../../actions';
+import { fetch_action, login_type } from '../../actions/login';
 // Externasl imports
 import Swal from 'sweetalert2';
 // components imports
