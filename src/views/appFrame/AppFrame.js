@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch, withRouter } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Link, withRouter } from "react-router-dom";
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 // Components import
@@ -15,26 +15,39 @@ class AppFrame extends Component {
     }
   }
 
+  dashboardComponent = () => {
+    return  <DashboardContainer />
+  }
+
   render() {
+    const { props } = this;
+    const { match } = props;
+    console.log('frame', props);
+    
     return (
       <div className="AppFrame container-fluid">
         <Header
-          {...this.props}
-          changeLanguage={this.props.changeLanguage}
+          {...props}
+          changeLanguage={props.changeLanguage}
         />
         <div className="col-12 dashboardContent">
           <div className="row">
-            <div className="col-12 col-lg-3 sidebar"></div>
+            <div className="col-12 col-lg-3 sidebar">
+              <Link to={ match.path + "dashboard"}>Dashboard</Link>
+              <br/>
+              <Link to={ match.path + "handle"}>Test 1</Link>
+            </div>
             <div className="col-12 col-lg-9 ">
+              <Route path={ match.path + "/dashboard"} component={this.dashboardComponent} />
               <Router>
                 <Switch>
-                  <Route path="/user/dashboard" render={() =>
+                  {/* <Route path={ match.patch +"dashboard"} render={() =>
                     <DashboardContainer
-                      {...this.props}
-                      changeLanguage={this.props.changeLanguage}
+                      {...props}
                     />
                   }
-                  />
+                  /> */}
+                  {/* <Route component={() => "404 not found"} /> */}
                 </Switch>
               </Router>
             </div>

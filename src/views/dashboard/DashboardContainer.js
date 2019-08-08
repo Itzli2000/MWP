@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -12,6 +13,8 @@ class DashboardContainer extends Component {
 
   render() {
     // const { props } = this;
+    console.log('dash', this.props);
+    
     return (
       <div className="dashboard">
         <h1>Dashboard</h1>
@@ -30,4 +33,4 @@ const mapDispatchToProps = dispatch => ({
 const mapStateToProps = ({ login }) => ({
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(DashboardContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(DashboardContainer));

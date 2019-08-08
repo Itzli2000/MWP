@@ -91,11 +91,12 @@ class LoginContainer extends Component {
     }
 
     render() {
+        console.log(this.props);
+        
         return (
             <div className="fullHeight container">
                 <Header
                   {...this.props}
-                  changeLanguage={this.props.changeLanguage}
                 />
                 <div className="row">
                     <SliderComponent
@@ -108,7 +109,6 @@ class LoginContainer extends Component {
                     />
                     <DescriptionComponent
                         {...this.props}
-                        changeLanguage={this.props.changeLanguage}
                         showPrivacy={this.showPrivacy}
                     />
                 </div>
