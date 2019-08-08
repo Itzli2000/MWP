@@ -76,7 +76,7 @@ class LoginContainer extends Component {
                 const LinkedButton = $('#LinkedButton');
                 LinkedButton.addEventListener('click', (e) => {
                     instance.props.loginType('LinkedInLogged');
-                    instance.props.history.push('/user/dasboard');
+                    instance.props.history.push('/user/dashboard');
                     Swal.close();
                 })
                 FacebookButton.addEventListener('click', (e) => {

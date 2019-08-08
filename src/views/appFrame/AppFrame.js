@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch, Link, withRouter } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, NavLink, withRouter } from "react-router-dom";
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 // Components import
@@ -16,14 +16,14 @@ class AppFrame extends Component {
   }
 
   dashboardComponent = () => {
-    return  <DashboardContainer />
+    return <DashboardContainer />
   }
 
   render() {
     const { props } = this;
     const { match } = props;
     console.log('frame', props);
-    
+
     return (
       <div className="AppFrame container-fluid">
         <Header
@@ -33,23 +33,20 @@ class AppFrame extends Component {
         <div className="col-12 dashboardContent">
           <div className="row">
             <div className="col-12 col-lg-3 sidebar">
-              <Link to={ match.path + "dashboard"}>Dashboard</Link>
-              <br/>
-              <Link to={ match.path + "handle"}>Test 1</Link>
+              <NavLink activeClassName='active' to={match.path + "/dashboard"}>Dashboard</NavLink>
+              <br />
+              <NavLink activeClassName='active' to={match.path + "/handle"}>Test 1</NavLink>
             </div>
             <div className="col-12 col-lg-9 ">
-              <Route path={ match.path + "/dashboard"} component={this.dashboardComponent} />
-              <Router>
-                <Switch>
-                  {/* <Route path={ match.patch +"dashboard"} render={() =>
-                    <DashboardContainer
-                      {...props}
-                    />
-                  }
-                  /> */}
-                  {/* <Route component={() => "404 not found"} /> */}
-                </Switch>
-              </Router>
+              <Switch>
+                <Route exact path={match.path + "/dashboard"} render={() =>
+                  <DashboardContainer
+                    {...props}
+                  />
+                }
+                />
+                <Route component={() => "404 not found"} />
+              </Switch>
             </div>
           </div>
         </div>

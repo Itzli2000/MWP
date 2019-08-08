@@ -11,7 +11,7 @@ const AppRouter = (props) => {
         <Router>
             <div className="App">
                 <Switch>
-                    <Route path="/user/" render={() =>
+                    <Route path="/user" render={() =>
                         <AppFrame
                             {...props}
                         />
