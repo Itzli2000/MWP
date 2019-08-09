@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route, Switch, NavLink, withRouter } from "react-router-dom";
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetch_result } from '../../actions/login';
+import { login } from '../../actions/login';
 // Components import
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -17,29 +17,43 @@ class AppFrame extends Component {
     }
   }
 
-  componentDidMount() {
-    if (this.props.fetch_data && this.props.fetch_data.isLogged) {
-      this.props.logOut({isLogged:false});
-    }
+
+  componentWillMount() {
     this.validateUser();
+  }
+
+
+  componentDidMount() {
+    this.validateUser();
+  }
+
+  logOutUserFunction = () => {
+
+    if (this.props.userLogged) {
+      this.props.logOut(false);
+    }
+    this.props.history.push('/');
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (this.props.location.pathname !== prevProps.location.pathname) {
       this.validateUser();
     }
-
-
   }
 
   validateUser = () => {
-    if (this.props.fetch_data && !this.props.fetch_data.isLogged) {
-      this.props.history.push(this.props.match.path + '/profile');
+    if (this.props.userData) {
+      if (!this.props.userLogged) {
+        this.props.history.push(this.props.match.path + '/profile');
+      }
+      else {
+        if (this.props.userLogged === undefined) {
+          this.props.history.push('/');
+        }
+      }
     }
     else {
-      if (!this.props.fetch_data) {
-        this.props.history.push('/');
-      }
+      this.props.history.push('/');
     }
   };
 
@@ -57,6 +71,7 @@ class AppFrame extends Component {
         <Header
           {...props}
           changeLanguage={props.changeLanguage}
+          logOutUserFunction={this.logOutUserFunction}
         />
         <div className="col-12 dashboardContent">
           <div className="row">
@@ -64,9 +79,9 @@ class AppFrame extends Component {
               <NavLink activeClassName='active' to={match.path + "/dashboard"}>{t('menuDashboard')}</NavLink>
               <br />
               <NavLink activeClassName='active' to={match.path + "/profile"}>{t('menuProfile')}</NavLink>
-              <br/>
+              <br />
               <NavLink activeClassName='active' to={match.path + "/appointments"}>{t('menuAppointments')}</NavLink>
-              <br/>
+              <br />
               <NavLink activeClassName='active' to={match.path + "/settngs"}>{t('menuSettings')}</NavLink>
             </div>
             <div className="col-12 col-lg-9 ">
@@ -77,9 +92,9 @@ class AppFrame extends Component {
                   />
                 }
                 />
-                <Route exact path={match.path + "/profile"} render={() => 
-                  <ProfileContainer  
-                  {...this.props}
+                <Route exact path={match.path + "/profile"} render={() =>
+                  <ProfileContainer
+                    {...this.props}
                   />
                 }
                 />
@@ -101,11 +116,12 @@ AppFrame.propTypes = {
 
 
 const mapDispatchToProps = dispatch => ({
-  logOut: value => dispatch(fetch_result(value))
+  logOut: value => dispatch(login(value))
 });
 
 const mapStateToProps = ({ login }) => ({
-  fetch_data: login.fetch,
+  userLogged: login.login,
+  userData: login.fetch,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(AppFrame));

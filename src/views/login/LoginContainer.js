@@ -20,11 +20,14 @@ class LoginContainer extends Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if (this.props.login_type) {
+    }
+    
+    redirectUser = () => {
+        
+        if (( this.props.login || !this.props.login) && (this.props.login_type && this.props.login_type.length > 0)) {
             this.props.history.push('/user/dashboard');
         }
     }
-    
     
 
     loginUserType = value => {
@@ -83,11 +86,13 @@ class LoginContainer extends Component {
                 const FacebookButton = $('#Facebook');
                 const LinkedButton = $('#LinkedButton');
                 LinkedButton.addEventListener('click', (e) => {
-                    instance.props.loginType('LinkedInLogged');
+                    instance.props.loginType('LinkedIn');
+                    instance.redirectUser();
                     Swal.close();
                 })
                 FacebookButton.addEventListener('click', (e) => {
-                    instance.props.loginType('FacebookLogged');
+                    instance.props.loginType('Facebook');
+                    instance.redirectUser();
                     Swal.close();
                 })
             },

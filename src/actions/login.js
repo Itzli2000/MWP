@@ -11,7 +11,6 @@ export const fetch_action = payload => {
   if (payload === 'Expert')
     query = 2;
   return dispatch => {
-    dispatch(login(payload));
     fetch(`https://rickandmortyapi.com/api/character/${query}`).then(
       data => data.json()
     ).then(
@@ -20,7 +19,8 @@ export const fetch_action = payload => {
         if (response.id === 1) {
           isLogged = true;
         }
-        dispatch(fetch_result({response, isLogged}));
+        dispatch(fetch_result(response));
+        dispatch(login(isLogged));
       }
     )
   }

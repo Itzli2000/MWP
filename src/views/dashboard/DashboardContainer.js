@@ -12,10 +12,11 @@ class DashboardContainer extends Component {
   }
 
   render() {
-    
+    const { props } = this;
     return (
       <div className="dashboard">
         <h1>Dashboard</h1>
+        { props.userData && <p>Estes es tu Inicio { props.userData.name }</p> }
       </div>
     );
   }
@@ -29,6 +30,8 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const mapStateToProps = ({ login }) => ({
+  userLogged: login.login,
+  userData: login.fetch,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(DashboardContainer));
