@@ -19,6 +19,14 @@ class LoginContainer extends Component {
         }
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        if (this.props.login_type) {
+            this.props.history.push('/user/dashboard');
+        }
+    }
+    
+    
+
     loginUserType = value => {
         this.props.loginAction(value);
         this.setState({ background: value });
@@ -76,11 +84,11 @@ class LoginContainer extends Component {
                 const LinkedButton = $('#LinkedButton');
                 LinkedButton.addEventListener('click', (e) => {
                     instance.props.loginType('LinkedInLogged');
-                    instance.props.history.push('/user/dashboard');
                     Swal.close();
                 })
                 FacebookButton.addEventListener('click', (e) => {
                     instance.props.loginType('FacebookLogged');
+                    Swal.close();
                 })
             },
             showConfirmButton: false,
@@ -90,9 +98,7 @@ class LoginContainer extends Component {
         });
     }
 
-    render() {
-        console.log(this.props);
-        
+    render() {        
         return (
             <div className="fullHeight container">
                 <Header

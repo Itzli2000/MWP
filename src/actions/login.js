@@ -4,7 +4,7 @@ export const login = payload => ({ type: LOGIN, payload });
 
 export const login_type = payload => ({ type: LOGIN_TYPE, payload });
 
-const fetch_result = payload => ({ type: 'FETCH_RESULT', payload });
+export const fetch_result = payload => ({ type: 'FETCH_RESULT', payload });
 
 export const fetch_action = payload => {
   var query = 1;
@@ -16,8 +16,11 @@ export const fetch_action = payload => {
       data => data.json()
     ).then(
       response => {
-        // console.log(response);
-        dispatch(fetch_result(response));
+        let isLogged = false;
+        if (response.id === 1) {
+          isLogged = true;
+        }
+        dispatch(fetch_result({response, isLogged}));
       }
     )
   }

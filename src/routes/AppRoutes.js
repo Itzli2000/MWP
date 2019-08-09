@@ -5,8 +5,6 @@ import LoginContainer from './../views/login/LoginContainer';
 import AppFrame from "./../views/appFrame/AppFrame";
 
 const AppRouter = (props) => {
-    console.log(props);
-    
     return (
         <Router>
             <div className="App">
